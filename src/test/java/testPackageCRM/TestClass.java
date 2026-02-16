@@ -311,6 +311,7 @@ class TestClass extends BaseClassCRM
 	    {
 	        throw new SkipException("Skipping Project test: Login failed");
 	    }
+	    driver.navigate().refresh();
 	    ProjectPage project = new ProjectPage(driver);
 
 	    try {
@@ -321,10 +322,29 @@ class TestClass extends BaseClassCRM
 	        test.info("Opening specific Project");
 	        project.openProject();
 
+	        
+	        test.info("add stages to Project");
+	        project.addStages();
+	        driver.navigate().refresh();
+	        test.info("Add comments");
+	        project.comment();
+	        test.info("Delete comments");
+	        project.dltComment();
+	        test.info("Remove Stages");
+	        project.stgremove();
+	        test.info("Send Email");
+	        project.emailOption();
+	        test.info("Call");
+	        project.callOption();
+	        driver.navigate().refresh();
+	        test.info("SMS");
+	        project.smsOption();
+	        test.info("Appointments");
+	        project.appointments();
 	        test.pass("Project test completed successfully");
 
-	    } catch (Exception e) {
-
+	    } catch (Exception e) 
+	    {
 	        test.fail("Project test failed: " + e.getMessage());
 	        throw e;
 	    }
