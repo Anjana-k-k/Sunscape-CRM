@@ -14,6 +14,23 @@ public class ProjectPage
 		PageFactory.initElements(driver,this);
 	}
 @FindBy(xpath="//a[.//span[text()='Projects']]")WebElement prjClick;
-@FindBy(xpath="//a[@href='/projects/8964?statusId=7455']")WebElement prj;
+@FindBy(xpath="//p[text()='Anjana K K']")WebElement prj;
+@FindBy(xpath="//button[text()='Add Multiple Stages']")WebElement addMultiStg;
+@FindBy(xpath="(//span[.//input[@name='gilad']])[2]")WebElement stg1;
+@FindBy(xpath="(//span[.//input[@name='gilad']])[3]")WebElement stg2;
+@FindBy(xpath="(//span[.//input[@name='gilad']])[4]")WebElement stg3;
+public void prjClick()
+{
+	prjClick.click();
+}
+public void openProject()
+{
+	prj.click();
+	addMultiStg.click();
+	stg1.click();
+	stg2.click();
+	stg3.click();
+	
+}
 
 }

@@ -1,4 +1,5 @@
 package pagePackageCRM;
+import java.time.Duration;
 import java.util.List;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -6,12 +7,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class ProjectCreatePage 
 {
 	    WebDriver driver;
-	 
+	    WebDriverWait wait;
 	    @FindBy(xpath = "/html/body/div[1]/div[4]/div[2]/div[1]/div[1]/div[3]/button[2]")WebElement createPrjBtn;
 	    @FindBy(xpath = "//input[@value='residential']")WebElement radioBtn;
 	    @FindBy(xpath = "//input[@placeholder='Search Address Here ...']")WebElement srch;
@@ -23,15 +26,16 @@ public class ProjectCreatePage
 	    @FindBy(xpath="//button[text()='Next']")WebElement nextBtn;
 	    @FindBy(xpath="//input[@placeholder='Due date']") WebElement dueDate;
 	    @FindBy(xpath = "//h2[@class='react-datepicker__current-month']")WebElement monthYear;
-	    @FindBy(xpath = "//button[@aria-label='Next Month']")WebElement nextArrow;
-	    @FindBy(xpath = "//div[@class='react-datepicker__month']")List<WebElement> allDates;
+	    @FindBy(xpath = "//button[.//span[text()='Next Month']]")WebElement nextArrow;
+	    @FindBy(xpath = "//div[contains(@class,'react-datepicker__day') and not(contains(@class,'outside-month'))]")List<WebElement> allDates;
 	    @FindBy(xpath="//textarea[@name='description']")WebElement description;
 	    @FindBy(xpath="//button[text()='Save']")WebElement save;
-	    @FindBy(xpath="//p[text()='Project Assigning']")WebElement textreturn; 
-	   // @FindBy(xpath="/html/body/div/div[4]/div[2]/a")WebElement backtohome;
+	    @FindBy(xpath="//p[text()='Add Project Details']")WebElement textreturn; 
+	  //  @FindBy(xpath="/html/body/div/div[4]/div[2]/a")WebElement backtohome;
 	    
 	    public ProjectCreatePage(WebDriver driver) {
 	        this.driver = driver;
+	        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	        PageFactory.initElements(driver, this);
 	    }
 	 
@@ -54,12 +58,13 @@ public class ProjectCreatePage
 	            lastname.sendKeys(lname);
 	            email.sendKeys(emailId);
 	            Phno.sendKeys(phone);
-	            nextBtn.click();
+	            //nextBtn.click();
+	            wait.until(ExpectedConditions.visibilityOf(nextBtn)).click();          
 	            dueDate.click();
 	            selectDueDate("March 2026","8");
 	            description.sendKeys(descriptionText);
-
-	            save.click();
+	            //save.click();
+	            wait.until(ExpectedConditions.elementToBeClickable(save)).click();
 	        }
 
 

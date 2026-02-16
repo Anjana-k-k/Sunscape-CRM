@@ -5,17 +5,12 @@
     <classes>
       <class name="testPackageCRM.TestClass">
         <methods>
-          <include name="rolesTest"/>
           <include name="captureResult"/>
-          <include name="groupsTest"/>
           <include name="reportSetup"/>
           <include name="createTest"/>
           <include name="browserSetup"/>
-          <include name="materialsTest"/>
-          <include name="officeAndSourceTest"/>
-          <include name="financeTest"/>
+          <include name="projectTest"/>
           <include name="teardown"/>
-          <include name="createProjectUsingExcel" invocation-numbers="0"/>
         </methods>
       </class> <!-- testPackageCRM.TestClass -->
     </classes>
