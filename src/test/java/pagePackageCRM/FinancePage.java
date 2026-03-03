@@ -39,20 +39,27 @@ public class FinancePage
 	@FindBy(xpath="(//div[text()='Anjana k k'])[3]")WebElement user2;
 	@FindBy(xpath="(//button[@aria-label='Open'])[7]")WebElement groupmenu2;
 	@FindBy(xpath="//div[text()='Design']")WebElement group2;
-	@FindBy(xpath="//button[text()='Submit']")WebElement submit;
-	@FindBy(xpath="//div[@class='MuiBox-root css-1c6gta1']")WebElement scroll;
-	@FindBy(xpath="//button[@id=\"long-button\"]")WebElement Dltmenu;
+	@FindBy(xpath="//button[.//span[text()='Submit']]")WebElement submit;
+	@FindBy(xpath="//div[@class='modal_body']")WebElement scroll;
+	@FindBy(xpath="(//button[@id='long-button'])[2]")WebElement Dltmenu;
 	@FindBy(xpath="//li[@role='menuitem' and text()='Delete']")WebElement delete;
 	@FindBy(xpath="//button[contains(text(),'Delete')]")WebElement deleteOpt;
+	public void financeClick()
+	{
+		
+		finance.click();
+	}
+	
 	public void createfinance() throws InterruptedException
 	{
-		finance.click();
+		
+		 driver.navigate().refresh();
 		Actions act=new Actions(driver);
 		act.moveToElement(createFinance).click().perform();
-		financeType.sendKeys("HDFC new");
-		Address.sendKeys("HDFC 01 Bank");
+		financeType.sendKeys("HDFC new 120");
+		Address.sendKeys("HDFC 02 Bank");
 		email.sendKeys("hdfc01@gmail.com");
-		phno.sendKeys("4767800950");
+		phno.sendKeys("4767800957");
 		act.moveToElement(milestoneMenu).click().perform();
 		Thread.sleep(1000);
 		act.moveToElement(milestoneCount).click().sendKeys(Keys.ENTER).perform();

@@ -12,14 +12,14 @@ public class OfficeAndSource
 	@FindBy(xpath="//button[contains(text(),'Office')]")WebElement officeAndSource;
 	@FindBy(xpath="//button[.//span[text()='+ Office']]")WebElement createOffice;
 	@FindBy(xpath="//input[@placeholder=\"Office Name\"]")WebElement offName;
-	@FindBy(xpath="//button[text()=\"Save\"]")WebElement saveBtn;
+	@FindBy(xpath="//button[span[text()='Save']]")WebElement saveBtn;
 	@FindBy(xpath="//button[@aria-label='more']")WebElement menuOf;
 	@FindBy(xpath="//li[text()='Delete']")WebElement delete;
 	@FindBy(xpath="//button[text()='Delete']")WebElement deletebtn;
 	@FindBy(xpath="//button[text()='Source']")WebElement sourceopt;
 	@FindBy(xpath="//button[.//span[text()='+ Source']]") WebElement addSource;
 	@FindBy(xpath="//input[@placeholder='Source Name']")WebElement sourceName;
-	@FindBy(xpath="//button[text()='Save']")WebElement save;
+	@FindBy(xpath="//button[span[text()='Save']]")WebElement save;
 	@FindBy(xpath="//button[@aria-label='more']")WebElement sMenu;
 	@FindBy(xpath="//li[text()='Delete']")WebElement dltsource;
 	@FindBy(xpath="//button[text()='Delete']")WebElement dltSourceOpt;
@@ -36,7 +36,7 @@ public class OfficeAndSource
 	public void createOffice()
 	{
 		createOffice.click();
-		offName.sendKeys("office 203");
+		offName.sendKeys("office 115");
 		saveBtn.click();
 	}
 	public void deleteOffice()
@@ -46,10 +46,11 @@ public class OfficeAndSource
 		deletebtn.click();
 	}
 	public void createsource() throws InterruptedException
-	{   driver.navigate().refresh();
+	{   
+		driver.navigate().refresh();
 		sourceopt.click();
 		addSource.click();
-		sourceName.sendKeys("source 203");
+		sourceName.sendKeys("source 115");
 		save.click();
 	}
 	public void deleteSource()

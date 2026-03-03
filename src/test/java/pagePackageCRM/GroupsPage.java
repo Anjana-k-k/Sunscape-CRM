@@ -14,15 +14,15 @@ public class GroupsPage
 	// groups
 			@FindBy(xpath="//button[.//span[text()='Groups']]") WebElement grpBtn;
 			@FindBy(xpath="//button[.//span[text()='+ Group']]")WebElement createGrp;
-			@FindBy(xpath="//input[@placeholder='Group Name']")WebElement grpName;
+			@FindBy(xpath="//input[@name='name']")WebElement grpName;
 			@FindBy(xpath="//textarea[@placeholder='Description']")WebElement G_description;
-			@FindBy(xpath="//button[text()='Create']")WebElement createBtn;
-			@FindBy(xpath="//div[text()='Redesign124']")WebElement groupClick;
+			@FindBy(xpath="//button[.//span[text()='Create']]")WebElement createBtn;
+			@FindBy(xpath="//div[text()='New Group 180']")WebElement groupClick;
 			@FindBy(xpath="//button[.//span[text()='+ User']]") WebElement addUsertoGrp;
 			@FindBy(xpath="//button[@aria-label='Open']")WebElement usermail;
-			@FindBy(xpath="//div[text()='anjanaworkesr26@gmail.com']")WebElement addMail;
-			@FindBy(xpath="//button[text()='Add']")WebElement addU;
-			@FindBy(xpath="//a[text()='Redesign1300']")WebElement backBtn;
+			@FindBy(xpath="//div[text()='kanjana@energyscaperenewables.com']")WebElement addMail;
+			@FindBy(xpath="//button[.//span[text()='Add']]")WebElement addU;
+			@FindBy(xpath="//a[text()='New Group 180']")WebElement backBtn;
 			@FindBy(xpath="(//button[@aria-label='more'])[4]")WebElement menuGrp;
 			@FindBy(xpath="//li[text()='Delete']")WebElement deletegrp;
 			@FindBy(xpath="//button[text()='Delete']")WebElement dltGrpBtn;
@@ -31,16 +31,15 @@ public class GroupsPage
 
 				this.driver=driver;
 				PageFactory.initElements(driver,this);
-				}
+			}
 		
 			
 	public void groups() throws InterruptedException
 	 {
 	 	grpBtn.click();
 	 	Actions act1=new Actions(driver);
-	 	act1.moveToElement(createGrp).click().perform();
-	 	Thread.sleep(2000);
-	 	act1.moveToElement(grpName).click().sendKeys("New Group 100").perform();
+	 	createGrp.click();
+	 	act1.moveToElement(grpName).click().sendKeys("New Group 203").perform();
 	 	Thread.sleep(1000);
 	 	act1.moveToElement(G_description).click().sendKeys("This is a redesign group").perform();
 	 	createBtn.click();

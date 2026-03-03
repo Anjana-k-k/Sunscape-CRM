@@ -1,21 +1,13 @@
 package pagePackageCRM;
 
-import java.time.Duration;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class UsersPage 
 {
-
 	WebDriver driver;
 
 	//users
@@ -27,9 +19,8 @@ public class UsersPage
 		@FindBy(xpath="/html/body/div[3]/div[3]/div[2]/div/form/div[1]/div[3]/div/div/div/div/button[1]")WebElement rolebackBtn;
 		@FindBy(xpath="(//button[@aria-label='Open'])[2]")WebElement roleBtn;
 		@FindBy(xpath="//div[text()='MODERATOR']")WebElement roleOpt;
-		@FindBy(xpath="//button[text()='Send']")WebElement send;
-		//@FindBy(xpath="//div[@class='MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-2n9dey']")WebElement scroll;
-		@FindBy(xpath="MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-2n9dey")WebElement scroll;
+		@FindBy(xpath="//button[.//span[text()='Send']]")WebElement send;
+		@FindBy(xpath="//div[@class='MuiDataGrid-scrollbarContent']")WebElement scroll;
 		
 		@FindBy(xpath="//button[@aria-label='more']")WebElement menulist;
 		@FindBy(xpath="//button[text()='All']")WebElement All;
@@ -45,9 +36,7 @@ public class UsersPage
 		@FindBy(xpath="//button[@aria-label='more']")WebElement menu;
 		@FindBy(xpath="//li[text()='Delete']")WebElement deleteUser;
 		@FindBy(xpath="//button[text()='Delete']")WebElement deleteBtn;
-		
-		
-		 
+			 
 		public UsersPage(WebDriver driver)
 		{
 		this.driver=driver;
@@ -67,6 +56,7 @@ public class UsersPage
 		  roleBtn.click();
 		  Thread.sleep(1000);
 		  act.moveToElement(roleOpt).click().perform();
+		  Thread.sleep(1000);
 	      send.click();	 		  
 		 }
 		
@@ -77,14 +67,11 @@ public class UsersPage
 		  inviteBtn.click();
 		  Thread.sleep(2000);
 		  All.click();
-//		  JavascriptExecutor js=(JavascriptExecutor)driver;
-//		  js.executeScript("arguments[0].scrollRight = arguments[0].scrollWidth;", scroll);
-//		  act1.moveToElement(menu).click().perform();
-//		  Thread.sleep(500);
-		  act1.moveToElement(scroll).keyDown(org.openqa.selenium.Keys.SHIFT).scrollByAmount(2000, 0).keyUp(org.openqa.selenium.Keys.SHIFT).perform();
+		  act1.clickAndHold(scroll).moveByOffset(300, 0).release().perform();
+		  Thread.sleep(2000);
+          menu.click();
 		  deleteUser.click();
 		  Thread.sleep(500);
-		  deleteBtn.click();
-		 
-}
+		  deleteBtn.click(); 
+        }
 }

@@ -3,16 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testPackageCRM.TestClass">
+      <class name="testPackageCRM.TestClass2">
         <methods>
           <include name="captureResult"/>
           <include name="reportSetup"/>
           <include name="createTest"/>
           <include name="browserSetup"/>
-          <include name="projectTest"/>
+          <include name="checklistTest"/>
           <include name="teardown"/>
         </methods>
-      </class> <!-- testPackageCRM.TestClass -->
+      </class> <!-- testPackageCRM.TestClass2 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

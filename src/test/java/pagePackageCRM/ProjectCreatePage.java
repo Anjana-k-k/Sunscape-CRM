@@ -15,22 +15,22 @@ public class ProjectCreatePage
 {
 	    WebDriver driver;
 	    WebDriverWait wait;
-	    @FindBy(xpath = "/html/body/div[1]/div[4]/div[2]/div[1]/div[1]/div[3]/button[2]")WebElement createPrjBtn;
+	    @FindBy(xpath = "//button[.//span[text()='+ Create ']]")WebElement createPrjBtn;
 	    @FindBy(xpath = "//input[@value='residential']")WebElement radioBtn;
-	    @FindBy(xpath = "//input[@placeholder='Search Address Here ...']")WebElement srch;
+	    @FindBy(xpath = "//input[@placeholder='Search Address']")WebElement srch;
 	    @FindBy(xpath="//li[text()='South Alley']")WebElement place;
 	    @FindBy(xpath="//input[@name='customerInfo.pContact.firstName']") WebElement firstName;
 	    @FindBy(xpath="//input[@name='customerInfo.pContact.lastName']")WebElement lastname;
 	    @FindBy(xpath="//input[@name='customerInfo.pContact.email']") WebElement email;
 	    @FindBy(xpath="//input[@placeholder='Phone Number']")WebElement Phno;
-	    @FindBy(xpath="//button[text()='Next']")WebElement nextBtn;
+	    @FindBy(xpath="//button[.//span[text()='Next']]")WebElement nextBtn;
 	    @FindBy(xpath="//input[@placeholder='Due date']") WebElement dueDate;
 	    @FindBy(xpath = "//h2[@class='react-datepicker__current-month']")WebElement monthYear;
 	    @FindBy(xpath = "//button[.//span[text()='Next Month']]")WebElement nextArrow;
 	    @FindBy(xpath = "//div[contains(@class,'react-datepicker__day') and not(contains(@class,'outside-month'))]")List<WebElement> allDates;
 	    @FindBy(xpath="//textarea[@name='description']")WebElement description;
-	    @FindBy(xpath="//button[text()='Save']")WebElement save;
-	    @FindBy(xpath="//p[text()='Add Project Details']")WebElement textreturn; 
+	    @FindBy(xpath="//button[.//span[text()='Save']]")WebElement save;
+	    @FindBy(xpath="//p[text()='Create Project']")WebElement textreturn; 
 	  //  @FindBy(xpath="/html/body/div/div[4]/div[2]/a")WebElement backtohome;
 	    
 	    public ProjectCreatePage(WebDriver driver) {
@@ -42,7 +42,7 @@ public class ProjectCreatePage
 	    public void createPrjtClick()
 	    {
 	    	createPrjBtn.click();
-	    	String exptext="Add Project Details";
+	    	String exptext="Create Project";
 	    	String act=textreturn.getText();
 	    	System.out.println(act);
 	    	Assert.assertEquals(exptext, act);    

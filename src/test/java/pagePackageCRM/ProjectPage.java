@@ -1,5 +1,6 @@
 package pagePackageCRM;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,13 +16,12 @@ public class ProjectPage
 		this.driver=driver;
 		PageFactory.initElements(driver,this);
 	}
-@FindBy(xpath="//a[.//span[text()='Projects']]")WebElement prjClick;
-@FindBy(xpath="//p[text()='Anjana K K']")WebElement prj;
 @FindBy(xpath="//button[text()='Add Multiple Stages']")WebElement addMultiStg;
 @FindBy(xpath="(//span[.//input[@name='gilad']])[2]")WebElement stg1;
 @FindBy(xpath="(//span[.//input[@name='gilad']])[3]")WebElement stg2;
 @FindBy(xpath="(//span[.//input[@name='gilad']])[4]")WebElement stg3;
-@FindBy(xpath="(//button[text()='Save'])[2]")WebElement saveStg;
+@FindBy(xpath="//button[.//span[text()='Save']]")WebElement saveStg;
+@FindBy(xpath="//div[@class='modal_body']")WebElement scroll;
 @FindBy(xpath="(//button[@aria-label='more'])[1]")WebElement StgMenu;
 @FindBy(xpath="//li[text()='Mark as completed']")WebElement markAsCmplt;
 @FindBy(xpath="//button[text()='Ok']")WebElement ok;
@@ -31,7 +31,7 @@ public class ProjectPage
 @FindBy(xpath="//textarea[@name='comment']")WebElement cmnt;
 @FindBy(xpath="//li[.//p[text()='Anjana k k']]")WebElement mentionName;
 @FindBy(xpath="//button[text()='Save']")WebElement CmntSave;
-@FindBy(xpath="(//button[@aria-label='delete'])[4]")WebElement deleteCmnt;
+@FindBy(xpath="(//button[@aria-label='delete'])[1]")WebElement deleteCmnt;
 @FindBy(xpath="//button[text()='Delete']")WebElement dltBtn;
 @FindBy(xpath="(//button[@aria-label='reply'])[1]")WebElement rply;
 @FindBy(xpath="(//textarea[@placeholder='Enter your Reply...'])[1]")WebElement cmntRply;
@@ -60,29 +60,23 @@ public class ProjectPage
 
 //appointments
 @FindBy(xpath="//button[.//div[text()='Appointments']]")WebElement appointmentOpt;
-@FindBy(xpath="//button[text()='Add New']")WebElement addnew;
+@FindBy(xpath="//button[.//span[text()='Add New']]")WebElement addnew;
 @FindBy(xpath="(//button[@title='Open'])[1]")WebElement typeMenu;
 @FindBy(xpath="//div[text()='Appointment']")WebElement type1;
 @FindBy(xpath="(//button[@title='Open'])[2]")WebElement stMenu;
 @FindBy(xpath="(//div[text()='NEW'])[2]")WebElement stStg;
 @FindBy(xpath="//input[@name='subject']")WebElement title;
 @FindBy(xpath="(//label[.//span[@class='greenmark']])[2]")WebElement online;
-@FindBy(xpath="//button[text()='Save']")WebElement saveA;
+@FindBy(xpath="//button[.//span[text()='Save']]")WebElement saveA;
 
-public void prjClick()
-{
-	prjClick.click();
-}
-public void openProject()
-{
-	prj.click();
-}
 public void addStages() throws InterruptedException
 {
 	addMultiStg.click();
 	stg1.click();
 	stg2.click();
 	stg3.click();
+//	JavascriptExecutor js=(JavascriptExecutor)driver;
+//	js.executeScript("window.scrollBy(0,400)",scroll);
 	Actions act1=new Actions(driver);
 	act1.moveToElement(saveStg).click().perform();
 	Thread.sleep(2000);
@@ -99,6 +93,7 @@ cmnt.sendKeys("comment 2");
 CmntSave.click();
 act.moveToElement(rply).click().sendKeys("Reply test").perform();
 rplysave.click();
+driver.navigate().refresh();
 allCmnts.click();
 }
 public void dltComment()
@@ -115,6 +110,7 @@ public void stgremove()
 }
 public void callOption()
 {
+	driver.navigate().refresh();
 call.click();	
 addcall.click();
 chooseUser.click();
@@ -150,7 +146,7 @@ typeMenu.click();
 type1.click();
 stMenu.click();
 stStg.click();
-title.sendKeys("New appointment 1");
+title.sendKeys("New appointment21");
 online.click();
 saveA.click();
 

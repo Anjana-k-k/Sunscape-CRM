@@ -23,12 +23,12 @@ public class WorkflowPage
 		@FindBy(xpath="//input[@value='Internal']")WebElement internal;
 		@FindBy(xpath="//input[@placeholder='Name']")WebElement name;
 		@FindBy(xpath="//input[@placeholder='Rotting Time(In Days)']")WebElement rottingTime;
-		@FindBy(xpath="//button[text()='Save & Next']")WebElement saveNext;
+		@FindBy(xpath="//button[.//span[text()='Save & Next']]")WebElement saveNext;
 		@FindBy(xpath="//button[@aria-label='Open']")WebElement chkfileMenu;
 		@FindBy(xpath="//div[text()='Text']")WebElement fileTypeBtn;
 		@FindBy(xpath="//input[@placeholder='Field Label']")WebElement fieldType;
 		@FindBy(xpath="//button[text()='Submit']")WebElement submit;
-		@FindBy(xpath="//span[@title='new Redesign09']")WebElement wrk;
+		@FindBy(xpath="//span[@title='New design 50']")WebElement wrk;
 		@FindBy(xpath="(//button[@aria-label='more'])[5]")WebElement wrkMenu;
 		@FindBy(xpath="//li[text()='Delete']")WebElement wrkDelete;
 		@FindBy(xpath="//button[text()='Delete']")WebElement wrkDltOpt;
@@ -37,7 +37,7 @@ public class WorkflowPage
 		@FindBy(xpath="//button[.//div[text()='Status']]")WebElement status;
 		@FindBy(xpath="//button[text()='Status']")WebElement addStatus;
 		@FindBy(xpath="//input[@placeholder='Name']")WebElement StatusName;
-		@FindBy(xpath="//button[text()='Add Status']")WebElement addStatusBtn;
+		@FindBy(xpath="//button[.//span[text()='Add Status']]")WebElement addStatusBtn;
 		@FindBy(xpath="//button[@aria-label='more']")WebElement statusMenu;
 		@FindBy(xpath="//li[text()='Delete']")WebElement dltStatus;
 		@FindBy(xpath="//button[text()='Delete']")WebElement dltStOpt;
@@ -46,7 +46,7 @@ public class WorkflowPage
 		@FindBy(xpath="//button[@aria-label='Open']")WebElement filemenu;
 		@FindBy(xpath="//div[text()='Text']")WebElement Chkfiletype;
 		@FindBy(xpath="//input[@placeholder='Field Label']")WebElement fieldlabel;
-		@FindBy(xpath="//button[text()='Submit']")WebElement chkSubmit;
+		@FindBy(xpath="//button[.//span[text()='Submit']]")WebElement chkSubmit;
 		@FindBy(xpath="//*[@id=\"long-button\"]")WebElement chkMenu;
 		@FindBy(xpath="//li[text()='Delete']")WebElement chkDltOpt;
 		@FindBy(xpath="//button[text()='Delete']") WebElement chkDlt;
@@ -62,28 +62,26 @@ public class WorkflowPage
 		addStages.click();
 		internal.click();
 		Thread.sleep(1000);
-		act2.moveToElement(name).click().sendKeys("New design").perform();
+		act2.moveToElement(name).click().sendKeys("New design 110").perform();
 		Thread.sleep(1000);
-		act2.moveToElement(rottingTime).click().sendKeys("3").perform();
+		act2.moveToElement(rottingTime).click().sendKeys("4").perform();
 		Thread.sleep(2000);
 		act2.moveToElement(saveNext).click().perform();
 		Thread.sleep(1000);
-		chkfileMenu.click();
-		act2.moveToElement(fileTypeBtn).click().sendKeys(Keys.ENTER).perform();
-		Thread.sleep(1000);
-		act2.moveToElement(fieldType).click().sendKeys("New design Checklists").perform();
-		Thread.sleep(1500);
-		submit.click();
-     	driver.navigate().refresh();
+		
+//		chkfileMenu.click();
+//		act2.moveToElement(fileTypeBtn).click().sendKeys(Keys.ENTER).perform();
+//		Thread.sleep(1000);
+//		act2.moveToElement(fieldType).click().sendKeys("New design Checklists 60").perform();
+//		Thread.sleep(1500);
+//		submit.click();
+//     	driver.navigate().refresh();
 		}
 		public void deleteworkflow() throws InterruptedException
 		{
 	    driver.navigate().refresh();
 		Actions act3=new Actions(driver);
-		//act3.moveToElement(stg).perform();
-		act3.click(wrkMenu).perform();
-		
-		
+		act3.click(wrkMenu).perform();	
 		Thread.sleep(1000);
 		act3.moveToElement(wrkDelete).click().perform();
 		Thread.sleep(1000);
@@ -97,7 +95,7 @@ public class WorkflowPage
 		Thread.sleep(2000);
 		act4.moveToElement(status).click().perform();
 		addStatus.click();
-		act4.moveToElement(StatusName).click().sendKeys("New design 210").perform();
+		act4.moveToElement(StatusName).click().sendKeys("New design 115").perform();
 		Thread.sleep(2000);
 		act4.moveToElement(addStatusBtn).click().perform();
 		Thread.sleep(2000);
@@ -109,10 +107,11 @@ public class WorkflowPage
 		Thread.sleep(500);
 		act4.moveToElement(checklist).click().perform();
 		addChkList.click();
+		Thread.sleep(1000);
 		filemenu.click();
 		act4.moveToElement(Chkfiletype).click().sendKeys(Keys.ENTER).perform();
 		Thread.sleep(1000);
-		act4.moveToElement(fieldlabel).click().sendKeys("new design Checklists one 30").perform();
+		act4.moveToElement(fieldlabel).click().sendKeys("new design Checklists 115").perform();
 		act4.moveToElement(chkSubmit).click().perform();
 		Thread.sleep(1000);
 		act4.moveToElement(chkMenu).click().sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();

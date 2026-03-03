@@ -19,7 +19,7 @@ WebDriver driver;
 @FindBy(xpath="//button[.//span[text()='+ Add Role']]")WebElement addrole;
 @FindBy(xpath="//input[@name='name']")WebElement roleNme;
 @FindBy(xpath="//textarea[@name='description']")WebElement description;
-@FindBy(xpath="//button[text()='Save']")WebElement save;
+@FindBy(xpath="//button[.//span[text()='Save']]")WebElement save;
 @FindBy(xpath="//button[@aria-label='more']")WebElement menu;
 @FindBy(xpath="//li[text()='Delete']")WebElement delete;
 @FindBy(xpath="//button[text()='Ok']")WebElement okBtn;
@@ -28,7 +28,7 @@ WebDriver driver;
 @FindBy(xpath="//input[@id='combo-box-demo-groupId']")WebElement grp;
 @FindBy(xpath="//button[@title='Open']")WebElement menu2;
 @FindBy(xpath="//div[text()='Gokul - Krishna']")WebElement user;
-@FindBy(xpath="//button[text()='Save']")WebElement saveBtn;
+@FindBy(xpath="//button[.//span[text()='Save']]")WebElement saveBtn;
 @FindBy(xpath="//button[@class='MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1xeia1z']")WebElement close;
 public RolesPage(WebDriver driver)
 {
@@ -39,11 +39,12 @@ public void clickRole()
 {
 	roles.click();
 }
-public void createRole()
+public void createRole() throws InterruptedException
 {
 	addrole.click();
-	roleNme.sendKeys("New reDesign");
+	roleNme.sendKeys("New ReDesign 150");
 	description.sendKeys("Description for this role");
+	Thread.sleep(1000);
 	save.click();
 }
 public void deleterole()
