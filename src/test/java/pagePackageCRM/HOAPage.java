@@ -55,7 +55,7 @@ public void hoaUpdate() throws InterruptedException
 	company.clear();
 	company.sendKeys("company name");
 	phone.clear();
-	phone.sendKeys("6786839397");
+	phone.sendKeys("6786839307");
 	email.clear();
 	email.sendKeys("abc@gmail.com");
 	hoadate.click();

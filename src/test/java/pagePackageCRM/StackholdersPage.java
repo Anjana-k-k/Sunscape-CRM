@@ -57,7 +57,7 @@ public void stackdetails()
 	PrjgrpOpt1.click();
 	prjUsrMenu.click();
 	prjUserOpt.click();
-	InstName.sendKeys("Installer 10");
+	InstName.sendKeys("Installer 11");
 	saveStack.click();
 	}
 }

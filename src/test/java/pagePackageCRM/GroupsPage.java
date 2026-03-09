@@ -39,7 +39,7 @@ public class GroupsPage
 	 	grpBtn.click();
 	 	Actions act1=new Actions(driver);
 	 	createGrp.click();
-	 	act1.moveToElement(grpName).click().sendKeys("New Group 203").perform();
+	 	act1.moveToElement(grpName).click().sendKeys("New Group 204").perform();
 	 	Thread.sleep(1000);
 	 	act1.moveToElement(G_description).click().sendKeys("This is a redesign group").perform();
 	 	createBtn.click();

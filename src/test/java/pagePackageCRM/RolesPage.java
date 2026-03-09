@@ -42,7 +42,7 @@ public void clickRole()
 public void createRole() throws InterruptedException
 {
 	addrole.click();
-	roleNme.sendKeys("New ReDesign 150");
+	roleNme.sendKeys("New ReDesign 160");
 	description.sendKeys("Description for this role");
 	Thread.sleep(1000);
 	save.click();

@@ -7,12 +7,14 @@ import org.testng.annotations.Test;
 import basePackage.BaseClassCRM;
 import pagePackageCRM.ChecklistPage;
 import pagePackageCRM.FilesPage;
+import pagePackageCRM.IntegrationsPage;
 import pagePackageCRM.LeadPage;
 import pagePackageCRM.LoginPage;
 import pagePackageCRM.MaterialsProjectPage;
 import pagePackageCRM.MyOrganization;
 import pagePackageCRM.ProjectCreatePage;
 import pagePackageCRM.PropertydetailsPage;
+import pagePackageCRM.SuperdashboardPage;
 import pagePackageCRM.projectClickpage;
 import pagePackageCRM.systemDetailsPage;
 import utilityPackageCRM.CreatepageUtility;
@@ -84,27 +86,26 @@ public class TestClass2 extends BaseClassCRM
 		    }
 		}
 		
-		@Test(priority = 3,enabled = true)
-		public void checklistTest() throws Exception {
-	
+		@Test(priority = 3, enabled = true)
+		public void integrationsTest() throws Exception {
+
 		    if (!isLoginSuccessful) {
-		        throw new SkipException("Skipping Checklist test: Login failed");
+		        throw new SkipException("Skipping Integrations test: Login failed");
 		    }
-	        driver.navigate().refresh();
-		    ChecklistPage checklist = new ChecklistPage(driver);
-	
+
+		    driver.navigate().refresh();
+
+		    IntegrationsPage integration = new IntegrationsPage(driver);
+
 		    try {
-		        test.info("Opening Checklist module");
-		        checklist.checklistClick();
-		        test.pass("checklist Opened successfully");
-	
-		        checklist.permit();
-		        test.pass("Permit checklist filled successfully");
-	            checklist.contractordetails();
-	       
+
+		        test.info("Opening Integrations module");
+		        integration.clickIntegration();
+		        test.pass("Integrations toggled successfully");
+
 		    } catch (Exception e) {
-		        test.fail("Checklist test failed: " + e.getMessage());
+
+		        test.fail("Integrations test failed: " + e.getMessage());
 		        throw e;
 		    }
-		}
-}
+		}}

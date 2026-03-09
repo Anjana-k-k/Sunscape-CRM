@@ -36,7 +36,7 @@ public class OfficeAndSource
 	public void createOffice()
 	{
 		createOffice.click();
-		offName.sendKeys("office 115");
+		offName.sendKeys("office 116");
 		saveBtn.click();
 	}
 	public void deleteOffice()
@@ -50,7 +50,7 @@ public class OfficeAndSource
 		driver.navigate().refresh();
 		sourceopt.click();
 		addSource.click();
-		sourceName.sendKeys("source 115");
+		sourceName.sendKeys("source 116");
 		save.click();
 	}
 	public void deleteSource()

@@ -15,6 +15,7 @@ import pagePackageCRM.FilesPage;
 import pagePackageCRM.FinancePage;
 import pagePackageCRM.GroupsPage;
 import pagePackageCRM.HOAPage;
+import pagePackageCRM.IntegrationsPage;
 import pagePackageCRM.InterconnectionPage;
 import pagePackageCRM.LeadPage;
 import pagePackageCRM.LoginPage;
@@ -29,6 +30,7 @@ import pagePackageCRM.PropertydetailsPage;
 import pagePackageCRM.ReminderPage;
 import pagePackageCRM.RolesPage;
 import pagePackageCRM.StackholdersPage;
+import pagePackageCRM.SuperdashboardPage;
 import pagePackageCRM.UsersPage;
 import pagePackageCRM.WorkflowPage;
 import pagePackageCRM.projectClickpage;
@@ -755,6 +757,54 @@ class TestClass extends BaseClassCRM
 		        throw new RuntimeException(e);
 		        }
 	    }
+	 @Test(priority = 27, enabled = true)
+		public void superDashboardTest() throws Exception {
+
+		    if (!isLoginSuccessful) {
+		        throw new SkipException("Skipping Super Dashboard test: Login failed");
+		    }
+
+		    driver.navigate().refresh();
+
+		    SuperdashboardPage dashboard = new SuperdashboardPage(driver);
+
+		    try {
+		        test.info("Opening Super Dashboard module");
+		        dashboard.dashboardClick();
+		        test.pass("Super Dashboard opened successfully");
+
+		        test.info("Selecting organization from menu");
+		        dashboard.selectOrg();
+		        test.pass("Organization selected and applied successfully");
+
+		    } catch (Exception e) {
+		        test.fail("Super Dashboard test failed: " + e.getMessage());
+		        throw e;
+		    }
+		}
+	 @Test(priority = 28, enabled = true)
+		public void integrationsTest() throws Exception {
+
+		    if (!isLoginSuccessful) {
+		        throw new SkipException("Skipping Integrations test: Login failed");
+		    }
+
+		    driver.navigate().refresh();
+
+		    IntegrationsPage integration = new IntegrationsPage(driver);
+
+		    try {
+
+		        test.info("Opening Integrations module");
+		        integration.clickIntegration();
+		        test.pass("Integrations toggled successfully");
+
+		    } catch (Exception e) {
+
+		        test.fail("Integrations test failed: " + e.getMessage());
+		        throw e;
+		    }
+		}
 }
 
 	

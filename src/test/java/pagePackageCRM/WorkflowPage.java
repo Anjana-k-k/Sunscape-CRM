@@ -95,7 +95,7 @@ public class WorkflowPage
 		Thread.sleep(2000);
 		act4.moveToElement(status).click().perform();
 		addStatus.click();
-		act4.moveToElement(StatusName).click().sendKeys("New design 115").perform();
+		act4.moveToElement(StatusName).click().sendKeys("New design 116").perform();
 		Thread.sleep(2000);
 		act4.moveToElement(addStatusBtn).click().perform();
 		Thread.sleep(2000);
@@ -111,7 +111,7 @@ public class WorkflowPage
 		filemenu.click();
 		act4.moveToElement(Chkfiletype).click().sendKeys(Keys.ENTER).perform();
 		Thread.sleep(1000);
-		act4.moveToElement(fieldlabel).click().sendKeys("new design Checklists 115").perform();
+		act4.moveToElement(fieldlabel).click().sendKeys("new design Checklists 116").perform();
 		act4.moveToElement(chkSubmit).click().perform();
 		Thread.sleep(1000);
 		act4.moveToElement(chkMenu).click().sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();

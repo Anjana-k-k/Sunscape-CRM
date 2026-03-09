@@ -56,8 +56,8 @@ public class FinancePage
 		 driver.navigate().refresh();
 		Actions act=new Actions(driver);
 		act.moveToElement(createFinance).click().perform();
-		financeType.sendKeys("HDFC new 120");
-		Address.sendKeys("HDFC 02 Bank");
+		financeType.sendKeys("HDFC new 130");
+		Address.sendKeys("HDFC 130 Bank");
 		email.sendKeys("hdfc01@gmail.com");
 		phno.sendKeys("4767800957");
 		act.moveToElement(milestoneMenu).click().perform();

@@ -90,7 +90,7 @@ ird.click();
 selectDueDate2("February 2026", "5");
 ResubmitDate.click();
 selectDueDate2("February 2026", "7");
-InterconnectnNbr.sendKeys("2324544624");
+InterconnectnNbr.sendKeys("2324544620");
 IntercntnCost.sendKeys("20000");
 rejectReasn.sendKeys(" Reason for rejection");
 notes.sendKeys("Notes for Interconnection");

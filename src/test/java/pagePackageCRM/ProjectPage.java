@@ -134,7 +134,7 @@ smsOpt.click();
 addsms.click();
 toUsermenu.click();
 SmsUser.click();
-msgBody.sendKeys("SMS Test 1");
+msgBody.sendKeys("SMS Test 2");
 sendMsg.click();
 }
 public void appointments() throws InterruptedException
