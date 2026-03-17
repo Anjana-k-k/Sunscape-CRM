@@ -2,15 +2,12 @@ package basePackage;
 
 import java.lang.reflect.Method;
 import java.time.Duration;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
-
 import com.aventstack.extentreports.*;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-
 import utilityPackageCRM.ScreenshotUtility;
 
 public class BaseClassCRM 

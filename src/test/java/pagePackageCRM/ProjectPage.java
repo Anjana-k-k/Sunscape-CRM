@@ -1,7 +1,5 @@
 package pagePackageCRM;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -75,8 +73,6 @@ public void addStages() throws InterruptedException
 	stg1.click();
 	stg2.click();
 	stg3.click();
-//	JavascriptExecutor js=(JavascriptExecutor)driver;
-//	js.executeScript("window.scrollBy(0,400)",scroll);
 	Actions act1=new Actions(driver);
 	act1.moveToElement(saveStg).click().perform();
 	Thread.sleep(2000);

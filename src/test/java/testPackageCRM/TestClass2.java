@@ -15,6 +15,7 @@ import pagePackageCRM.MyOrganization;
 import pagePackageCRM.ProjectCreatePage;
 import pagePackageCRM.PropertydetailsPage;
 import pagePackageCRM.SuperdashboardPage;
+import pagePackageCRM.VaultPage;
 import pagePackageCRM.projectClickpage;
 import pagePackageCRM.systemDetailsPage;
 import utilityPackageCRM.CreatepageUtility;
@@ -87,25 +88,38 @@ public class TestClass2 extends BaseClassCRM
 		}
 		
 		@Test(priority = 3, enabled = true)
-		public void integrationsTest() throws Exception {
+		public void vaultImportExportTest() throws Exception {
 
 		    if (!isLoginSuccessful) {
-		        throw new SkipException("Skipping Integrations test: Login failed");
+		        throw new SkipException("Skipping Vault test: Login failed");
 		    }
 
 		    driver.navigate().refresh();
 
-		    IntegrationsPage integration = new IntegrationsPage(driver);
+		    VaultPage vault = new VaultPage(driver);
 
 		    try {
 
-		        test.info("Opening Integrations module");
-		        integration.clickIntegration();
-		        test.pass("Integrations toggled successfully");
+		        test.info("Opening Vault module");
+		        vault.vaultClick();
+		        test.pass("Vault module opened successfully");
 
+		        test.info("Importing CSV file into Vault");
+		        vault.importfile();
+		        test.pass("CSV file imported successfully");
+
+		        test.info("Exporting CSV file from Vault");
+		        vault.exportCSV();
+		        test.pass("CSV file exported successfully");
+                vault.createVAult();
+		        vault.edit();
+		        driver.navigate().refresh();
+		        vault.delete();
+		        
 		    } catch (Exception e) {
 
-		        test.fail("Integrations test failed: " + e.getMessage());
+		        test.fail("Vault test failed: " + e.getMessage());
 		        throw e;
 		    }
-		}}
+		}
+		}

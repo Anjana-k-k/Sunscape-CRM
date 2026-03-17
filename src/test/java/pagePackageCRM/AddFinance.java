@@ -36,7 +36,6 @@ public void addfinancesData()
 	Actions act=new Actions(driver);
 	act.moveToElement(ftype).click().perform();
 	act.moveToElement(ftypeOpt).click().perform();
-	//ftypeOpt.click();
 	amnt.sendKeys("1000");
 	sbmt.click();
 }

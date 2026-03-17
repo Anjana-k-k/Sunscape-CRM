@@ -7,9 +7,9 @@
         <methods>
           <include name="captureResult"/>
           <include name="reportSetup"/>
-          <include name="superDashboardTest"/>
           <include name="createTest"/>
           <include name="browserSetup"/>
+          <include name="vaultImportExportTest"/>
           <include name="teardown"/>
         </methods>
       </class> <!-- testPackageCRM.TestClass2 -->

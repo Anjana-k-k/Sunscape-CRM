@@ -8,7 +8,6 @@ import org.testng.annotations.Test;
 
 import basePackage.BaseClassCRM;
 import pagePackageCRM.ActivityPage;
-import pagePackageCRM.AddFinance;
 import pagePackageCRM.AutoAssignProjectPage;
 import pagePackageCRM.ChecklistPage;
 import pagePackageCRM.FilesPage;
@@ -32,6 +31,7 @@ import pagePackageCRM.RolesPage;
 import pagePackageCRM.StackholdersPage;
 import pagePackageCRM.SuperdashboardPage;
 import pagePackageCRM.UsersPage;
+import pagePackageCRM.VaultPage;
 import pagePackageCRM.WorkflowPage;
 import pagePackageCRM.projectClickpage;
 import pagePackageCRM.systemDetailsPage;
@@ -802,6 +802,41 @@ class TestClass extends BaseClassCRM
 		    } catch (Exception e) {
 
 		        test.fail("Integrations test failed: " + e.getMessage());
+		        throw e;
+		    }
+		}
+		@Test(priority = 29, enabled = true)
+		public void vaultImportExportTest() throws Exception {
+
+		    if (!isLoginSuccessful) {
+		        throw new SkipException("Skipping Vault test: Login failed");
+		    }
+
+		    driver.navigate().refresh();
+
+		    VaultPage vault = new VaultPage(driver);
+
+		    try {
+
+		        test.info("Opening Vault module");
+		        vault.vaultClick();
+		        test.pass("Vault module opened successfully");
+
+		        test.info("Importing CSV file into Vault");
+		        vault.importfile();
+		        test.pass("CSV file imported successfully");
+
+		        test.info("Exporting CSV file from Vault");
+		        vault.exportCSV();
+		        test.pass("CSV file exported successfully");
+                vault.createVAult();
+		        vault.edit();
+		        driver.navigate().refresh();
+		        vault.delete();
+		        
+		    } catch (Exception e) {
+
+		        test.fail("Vault test failed: " + e.getMessage());
 		        throw e;
 		    }
 		}

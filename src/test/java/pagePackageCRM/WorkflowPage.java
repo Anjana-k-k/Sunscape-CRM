@@ -17,8 +17,7 @@ public class WorkflowPage
 	}
 		
 		@FindBy(xpath="//button[.//span[text()='Work flow']]")WebElement workflowOpt;
-		//@FindBy(xpath="//button[text()='Stages']")WebElement addStages;
-		
+		//@FindBy(xpath="//button[text()='Stages']")WebElement addStages;		
 		@FindBy(xpath="//button[.//span[text()='+ Stages']]")WebElement addStages;
 		@FindBy(xpath="//input[@value='Internal']")WebElement internal;
 		@FindBy(xpath="//input[@placeholder='Name']")WebElement name;
