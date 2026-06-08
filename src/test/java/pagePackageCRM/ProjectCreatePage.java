@@ -61,7 +61,7 @@ public class ProjectCreatePage
 	            //nextBtn.click();
 	            wait.until(ExpectedConditions.visibilityOf(nextBtn)).click();          
 	            dueDate.click();
-	            selectDueDate("March 2026","8");
+	            selectDueDate("April 2026","8");
 	            description.sendKeys(descriptionText);
 	            //save.click();
 	            wait.until(ExpectedConditions.elementToBeClickable(save)).click();
